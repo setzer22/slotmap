@@ -304,6 +304,16 @@ impl KeyData {
         let version = (value >> 32) | 1; // Ensure version is odd.
         Self::new(idx as u32, version as u32)
     }
+
+    /// Returns the internal index of this [`KeyData`]
+    pub fn idx(&self) -> u32 {
+        self.idx
+    }
+
+    /// Returns the internal version of this [`KeyData`]
+    pub fn version(&self) -> NonZeroU32 {
+        self.version
+    }
 }
 
 impl Debug for KeyData {
